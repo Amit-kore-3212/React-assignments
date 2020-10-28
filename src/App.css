@@ -1,0 +1,42 @@
+.product{
+    border: 1px solid gray;
+    width: 200px;
+    height: 300px;
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+.cart{
+    position:absolute;
+    top: 50px;
+    border: 1px solid burlywood;
+    right: 15px;
+    width: 100px;
+    height: 100%;
+    background-color: gray;
+    border-radius: 5px;
+
+}
+.comment-notification{
+    position: absolute;
+    font-size: 10px;
+    top: 0px;
+    right: -20px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: plum;
+    color: white;
+    border: 1px solid white;
+}
+.button{
+    position: absolute;
+    font-size: 10px;
+    top: 10px;
+    right: 90px;
+    padding: 5px 10px;
+    background: plum;
+    color: white;
+    border: 1px solid white;
+
+}
