@@ -7,7 +7,7 @@ interface Props{
     rating:number,
     description:string,
      price:number
-    addToCart : (name:string,rating:number,price:number,quantity:number)=> void
+    addToCart : (name:string,rating:number,price:number,id:number,quantity:number)=> void
    
 }
 
@@ -28,8 +28,8 @@ interface Props{
     const EditedValue =() :void=>{
         setEdit(prevState => !prevState)
     }
-   const editTotally = (name:string , rating:number , price:number , quantity:number) :void=>{
-       props.addToCart(name,rating,price , quantity)
+   const editTotally = (name:string , rating:number , price:number ,id:number, quantity:number) :void=>{
+       props.addToCart(name,rating,price ,id, quantity)
    }
    const handleQuantity=(e:any) :void=>{
        setquantity(e.target.value)
@@ -56,7 +56,7 @@ interface Props{
           <Price>Price : {props.price}</Price>
 
           <Button onClick={()=>{
-              editTotally(props.name , editRating, props.price , quantity)
+              editTotally(props.name , editRating, props.price ,props.id,  quantity)
           }}>Add To Cart</Button>
 
 

@@ -27,8 +27,8 @@ interface Props{
     const [cart , setCart] = useState<any[]>([])
     const [quantity , setQuantity] = useState<number>(1)
    
-    const addToCart =(name:string,rating:number,price:number,quantity:number)=>{
-        setCart(prevState => prevState.concat({name,rating,price}))
+    const addToCart =(name:string,rating:number,price:number,id:number,quantity:number)=>{
+        setCart(prevState => prevState.concat({name,rating,price,id}))
         setQuantity(quantity)
 
     }

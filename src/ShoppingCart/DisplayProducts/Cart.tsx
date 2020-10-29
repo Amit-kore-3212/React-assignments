@@ -23,8 +23,8 @@ export const Cart:React.FC<Props> =(props:Props)=>{
     },[props])
   
 
-const removeItem=(name:string)=>{
-    setCartInfo(cartInfo.filter(ele => ele.name !== name))
+const removeItem=(id:number)=>{
+    setCartInfo(cartInfo.filter(ele => ele.id !== id))
 }
   
     
@@ -45,7 +45,7 @@ const removeItem=(name:string)=>{
                                     <Price>Price : {ele.price}</Price>
                                     <P>Total Price : {parseInt(ele.price) * props.quantity}</P>
                                     <Remove onClick={()=>{
-                                        removeItem(ele.name)
+                                        removeItem(ele.id)
                                     }}>Remove From Cart</Remove>
 
                                     
