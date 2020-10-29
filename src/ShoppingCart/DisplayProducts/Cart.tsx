@@ -20,8 +20,9 @@ export const Cart:React.FC<Props> =(props:Props)=>{
     useEffect(()=>{
         setCartInfo(props.productInfo)
 
-    },[props])
-  
+    },[props.productInfo])
+    
+
 
 const removeItem=(id:number)=>{
     setCartInfo(cartInfo.filter(ele => ele.id !== id))
