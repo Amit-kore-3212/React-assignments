@@ -20,7 +20,7 @@ export const Cart:React.FC<Props> =(props:Props)=>{
     useEffect(()=>{
         setCartInfo(props.productInfo)
 
-    },[props.productInfo])
+    },[props])
     
 
 
