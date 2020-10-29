@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { ProductList } from './ShoppingCart/DisplayProducts/ProductList'
-import {products} from './ShoppingCart/Products/Products'
+// import { ProductList } from './ShoppingCart/DisplayProducts/ProductList'
+// import {products} from './ShoppingCart/Products/Products'
+import {BrowserRouter , Route} from 'react-router-dom'
 
 
-
-// import { Login } from './Components/Login'
-// import {Todo} from './Components/Todo'
+import { Login } from './Todo/Login'
+import {Todo} from './Todo/Todo'
 
 function App(){
 
@@ -16,13 +16,18 @@ function App(){
 
 
     return(
-     <div>
-     {/* <Route path="/" component={Login} exact={true}/>
-       <Route path="/todo" component={Todo} /> */}
-       <ProductList products={products} />
+      <BrowserRouter>
+       <div>
+     <Route path="/" component={Login} exact={true}/>
+       <Route path="/todo" component={Todo} />
+       {/* <ProductList products={products} /> */}
       
        </div>
        
+      
+      
+      </BrowserRouter>
+    
         
  
      

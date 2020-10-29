@@ -19,8 +19,8 @@ const handleTodos =(e:React.ChangeEvent<HTMLInputElement>):void=>{
     
 }
 const validate = () =>{
-if(todos.length < 10){
-alert("Enter atleast 10 Characters")
+if(todos.length > 10){
+alert("Enter lessthan 10 Characters")
     return false
 }
 return true
@@ -42,10 +42,13 @@ const handleAdding=() :void => {
 
 
 }
-const removeItem =(item:string) : void=>{
-   setTodoList(todoList.filter(ele => ele !== item))
+const removeItem =(item:any) : void=>{
+   const data=todoList.splice(item,1)
+   setTodoList(todoList.filter(ele => ele == data.toString()))
+  
 
 }
+
 
     return(
         <div>
@@ -62,16 +65,16 @@ const removeItem =(item:string) : void=>{
             <br/>
             <ol >
             {
-               todoList &&  todoList.map((ele)=>{
+               todoList &&  todoList.map((ele,i)=>{
                   
                     return (
                         
                         
-                        <div   key={ele}>
+                        <div   key={i}>
         
                           
                                 <li  onDoubleClick={()=>{
-                                    removeItem(ele)
+                                    removeItem(i)
                                 }}>{ele}  {date}</li>
                            
                         </div>
