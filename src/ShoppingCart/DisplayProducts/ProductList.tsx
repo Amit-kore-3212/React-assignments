@@ -1,29 +1,10 @@
 import React, { useState } from 'react'
 import { DisplayProducts } from './ProductDisplay'
 import {Cart} from './Cart'
-import '../../App.css'
-import styled from 'styled-components'
+import {Head, Header ,Info} from '../StyledComponents/stylecomponent'
 
-const Header = styled.div`
-background-color : #ddd;
-width : 100%;
-height:30px;
-border-radius:5px;
-`
 
-const Head = styled.div`
-background-color:red;
-`
-const Info = styled.div`
-border: 1px solid gray;
-    width: 200px;
-    height: 300px;
-    float: left;
-    margin-left: 10px;
-    text-align: center;
-    border-radius: 5px;
 
-`
 
 interface Products{
     id:number,
@@ -57,9 +38,13 @@ interface Props{
 
       
         <div>
-            <Header>
+          
+            <Header >
+            <Head>Welcome to Laptop Gallery - Choose Your favourite One</Head>
+               
                 
             </Header>
+            <br/>
             <div>
             {
                 props.products.map((ele:any)=>{

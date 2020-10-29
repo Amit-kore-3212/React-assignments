@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Product,ID, ProductName, Rating, EditRating, Button, Description, Quantity,P, Price } from '../StyledComponents/stylecomponent'
 
 interface Props{
     id:number,
@@ -37,26 +38,31 @@ interface Props{
   
     
     return(
-        <div>
-          <p>id:{props.id}</p>
-          <h5>Name : {props.name}</h5> 
+       <Product>
+          <ID>id:{props.id}</ID>
+          <ProductName>Name : {props.name}</ProductName> 
           {
-              edit ?  <div><input type="text" value={editRating} onChange={handleChange}/> <button onClick={EditedValue} >Update</button></div> : 
-              <p>Rating:{editRating}<button onClick={handleEdit}>Edit Rating</button></p>
+              edit ?  <div><EditRating type="text" value={editRating} onChange={handleChange}/> <Button onClick={EditedValue} >Update</Button></div> : 
+              <div>
+                             <Rating>Rating:{editRating}</Rating>
+              <Button  onClick={handleEdit}>Edit Rating</Button>
+
+              </div>
+   
           }
           
-          <p>Description :{props.description}</p>
-          <p>Quantity : <input type="number" value={quantity} onChange={handleQuantity} /></p>
-          <h6>Price : {props.price}</h6>
+          <Description>Description :{props.description}</Description>
+          <P>Quantity : <Quantity type="number" value={quantity} onChange={handleQuantity} /></P>
+          <Price>Price : {props.price}</Price>
 
-          <button onClick={()=>{
+          <Button onClick={()=>{
               editTotally(props.name , editRating, props.price , quantity)
-          }}>Add To Cart</button>
+          }}>Add To Cart</Button>
 
 
 
        
-        </div>
+</Product>
     )
 
 }

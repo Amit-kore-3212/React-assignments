@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import '../../App.css'
+import {CartInfo , Span, Remove , Carts , ProductName, Rating, Price ,P} from '../StyledComponents/stylecomponent'
+
 
 interface Props {
     productInfo:any[],
@@ -29,23 +30,23 @@ const removeItem=(name:string)=>{
     
     return(
         <div>
-            <button className="button" onClick={handleCart}>Go To Cart<span className="comment-notification">{cartInfo.length}</span></button>
+            <CartInfo onClick={handleCart}>Go To Cart<Span >{cartInfo.length}</Span></CartInfo>
             {
                 cart && (
-                    <div className="cart">
+                    <Carts >
 
                     <h2>Items:{cartInfo.length}</h2>
                     {
                      cartInfo && cartInfo.map((ele)=>{
                             return(
                                 <div key={ele.name}>
-                                    <p>Name :{ele.name}</p>
-                                    <p>Rating :{ele.rating}</p>
-                                    <h5>Price : {ele.price}</h5>
-                                    <h4>Total Price : {parseInt(ele.price) * props.quantity}</h4>
-                                    <button onClick={()=>{
+                                    <ProductName> Name :{ele.name}</ProductName>
+                                    <Rating>Rating :{ele.rating}</Rating>
+                                    <Price>Price : {ele.price}</Price>
+                                    <P>Total Price : {parseInt(ele.price) * props.quantity}</P>
+                                    <Remove onClick={()=>{
                                         removeItem(ele.name)
-                                    }}>Remove From Cart</button>
+                                    }}>Remove From Cart</Remove>
 
                                     
                                     </div>
@@ -59,7 +60,7 @@ const removeItem=(name:string)=>{
 
                  
                    
-                </div>
+                </Carts>
 
                 )
             }
