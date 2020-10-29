@@ -47,7 +47,7 @@ interface Props{
             <br/>
             <div>
             {
-                props.products.map((ele:any)=>{
+               props.products &&  props.products.map((ele:any)=>{
                     return(
                         <Info key={ele.id}>
                             <DisplayProducts id={ele.id} description={ele.description} rating={ele.rating} price={ele.price} name={ele.name} addToCart={addToCart} />
