@@ -42,10 +42,10 @@ const handleAdding=() :void => {
 
 
 }
-const removeItem =(item:any) : void=>{
+const removeItem =(item:number) : void=>{
    const data=todoList.splice(item,1)
    setTodoList(todoList.filter(ele => ele == data.toString()))
-  
+
 
 }
 
