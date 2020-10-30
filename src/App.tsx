@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
-import { ProductList } from './ShoppingCart/DisplayProducts/ProductList'
-import {products} from './ShoppingCart/Products/Products'
+import React  from 'react'
+import {BrowserRouter,Route} from 'react-router-dom'
+// import { ProductList } from './ShoppingCart/DisplayProducts/ProductList'
+// import {products} from './ShoppingCart/Products/Products'
+import { Title } from './Test-Assignment/Title'
+
 
 
 
@@ -12,16 +15,18 @@ function App(){
 
 
 
-
-
-
     return(
+      <BrowserRouter>
+      
+    
      <div>
      {/* <Route path="/" component={Login} exact={true}/>
        <Route path="/todo" component={Todo} /> */}
-       <ProductList products={products} />
+       {/* <ProductList products={products} /> */}
+       <Route path="/" component={Title}/>
       
        </div>
+       </BrowserRouter>
        
         
  

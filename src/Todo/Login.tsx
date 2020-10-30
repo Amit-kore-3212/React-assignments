@@ -28,10 +28,14 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
          if(username == ""){
              setErrorUserName("Username should be Present")
              return false
+         }else {
+             setErrorUserName("")
          }
          if(password.length < 6){
              setErrorPassword("Password should have atleast 6 characters")
              return false
+         }else {
+             setErrorPassword("")
          }
      return true
 
