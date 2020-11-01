@@ -1,12 +1,25 @@
 import React from 'react'
 import { useState } from 'react'
+import { useDispatch  } from 'react-redux'
+import { RouteComponentProps  } from 'react-router-dom'
+import {History,LocationState} from 'history'
+import { postAction } from '../Actions/postAction'
+import { InputElement ,  Discription, Posts, Titled, Label , SubmitButton } from './Styled-Components'
+
+
+
+
 
 interface Props {
-    value:string
+    postAction :(formData:any)=> void
+
+    history : History<LocationState>  
 }
 
 
-export const Title:React.FC<Props>=(props:Props)=>{
+export const Title:React.FC<Props> = (props:Props , history : RouteComponentProps)=>{
+
+    const dispatch = useDispatch()
     const [Title , setTitle]= useState<string>("")
     const [Description,setDescription] = useState<string>("")
     const [TitleError , setTitleError] =useState<string>("")
@@ -52,27 +65,44 @@ export const Title:React.FC<Props>=(props:Props)=>{
                 Description
                 
             }
+        dispatch(postAction(formData))
+        props.history.push('/posts')
+           
+              
+            
+            
           
 
         }
      
 
     }
+
     return(
-        <div>
+        
+        <Posts>
+            
             <form onSubmit={handleSubmit}>
-            <label>Title : </label>
-            <input type="text" value={Title} onChange={handleTitle} />
+                <Titled>
+                <Label>Title : </Label>
+            <InputElement type="text" value={Title} onChange={handleTitle} />
               <div style={{color:'red'}}>{TitleError}</div><br/>
+
+                </Titled>
+          
             
           
             <br/>
-            <label>Description : </label>
-            <textarea  value={Description} onChange={handleDescription} />
+            <Titled>
+            <Label>Description : </Label>
+            <Discription  value={Description} onChange={handleDescription} />
             <div style={{color:'red'}}>{DescriptionError}</div><br/>
-            <input type="submit" value="AddtoStoryBook"/>
+            <SubmitButton type="submit"  value="Add To StoryBook"/>
+                
+            </Titled>
+           
             </form>
 
-        </div>
+        </Posts>
     )
 }

@@ -1,5 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
+import configureStore from './Test-Assignment/Store/ConfigureStore'
+import { Provider } from 'react-redux'
 
-ReactDOM.render(<App/>,document.getElementById('root'))
+
+const store = configureStore()
+
+console.log(store.getState())
+
+
+store.subscribe(()=>{
+    console.log(store.getState())
+})
+
+
+const jsx= (
+    <Provider store={store}>
+        <App/>
+        
+    </Provider>
+)
+ReactDOM.render(jsx,document.getElementById('root'))
