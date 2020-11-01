@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { useDispatch  } from 'react-redux'
 import { RouteComponentProps  } from 'react-router-dom'
 import {History,LocationState} from 'history'
-import { postAction } from '../Actions/postAction'
-import { InputElement ,  Discription, Posts, Titled, Label , SubmitButton } from './Styled-Components'
+import { postAction } from '../../Actions/postAction'
+import { InputElement ,  Discription, Posts, Titled, Label , SubmitButton } from '../Styled-Components'
 
 
 

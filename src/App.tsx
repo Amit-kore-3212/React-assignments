@@ -1,19 +1,9 @@
 import React  from 'react'
 import {useState} from 'react'
 import {BrowserRouter,Route} from 'react-router-dom'
-import  Data  from './Test-Assignment/Components/Data'
-import { Home } from './Test-Assignment/Components/HomePage'
-import { Title } from './Test-Assignment/Components/Posts'
-// import { ProductList } from './ShoppingCart/DisplayProducts/ProductList'
-// import {products} from './ShoppingCart/Products/Products'
-
-
-
-
-
-
-// import { Login } from './Components/Login'
-// import {Todo} from './Components/Todo'
+import { Title ,  Home } from './Test-Assignment/Components'
+import  Data from './Test-Assignment/Components/Data//Data'
+// import { Login , Todo} from './Todo'
 
 export const DataContext = React.createContext<any[]>([])
 

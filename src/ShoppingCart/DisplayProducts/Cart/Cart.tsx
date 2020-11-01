@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {CartInfo , Span, Remove , Carts , ProductName, Rating, Price ,P} from '../StyledComponents/stylecomponent'
+import {CartInfo , Span, Remove , Carts , ProductName, Rating, Price ,P} from '../../StyledComponents/stylecomponent'
 
 
 interface Props {

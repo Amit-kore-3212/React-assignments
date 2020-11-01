@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Product,ID, ProductName, Rating, EditRating, Button, Description, Quantity,P, Price } from '../StyledComponents/stylecomponent'
+import { Product,ID, ProductName, Rating, EditRating, Button, Description, Quantity,P, Price } from '../../StyledComponents/stylecomponent'
 
 interface Props{
     id:number,

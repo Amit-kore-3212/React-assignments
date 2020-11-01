@@ -1,6 +1,6 @@
 import React , {useState } from 'react'
 import {connect} from 'react-redux'
-import { Label, PublishedDescription, PublishedPosts, PublishedTitle, Search } from './Styled-Components'
+import { Label, PublishedDescription, PublishedPosts, PublishedTitle, Search } from '../Styled-Components'
 
 
 

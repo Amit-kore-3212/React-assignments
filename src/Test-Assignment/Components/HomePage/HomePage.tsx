@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { HeadingText, NavBar, NavItem } from './Styled-Components'
+import { HeadingText, NavBar, NavItem } from '../Styled-Components'
 
 export const Home:React.FC=()=>{
     return (
         <NavBar>
             <NavItem>
-    <Link to="/">New Posts</Link>
+    <Link to="/">New Posts</Link>s
 </NavItem>
 <NavItem>
 <HeadingText>Welcome to  your own story writing Page</HeadingText>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { DisplayProducts } from './ProductDisplay'
-import {Cart} from './Cart'
-import {Head, Header ,Info} from '../StyledComponents/stylecomponent'
+import { DisplayProducts } from '../ProductDisplay/ProductDisplay'
+import {Cart} from '../Cart/Cart'
+import {Head, Header ,Info} from '../../StyledComponents/stylecomponent'
 
 
 
