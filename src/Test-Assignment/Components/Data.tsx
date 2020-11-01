@@ -14,7 +14,7 @@ interface Props {
 
     const [search , setSearch ] = useState<string>("")
 
-const handleChange =(e:React.ChangeEvent<HTMLInputElement>)=>{
+const handleChange =(e:React.ChangeEvent<HTMLInputElement>) : void =>{
     setSearch(e.target.value)
 
 }

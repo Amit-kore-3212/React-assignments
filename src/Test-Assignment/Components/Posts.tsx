@@ -37,7 +37,7 @@ export const Title:React.FC<Props> = (props:Props , history : RouteComponentProp
       
 
     }
-    const validate = ()=>{
+    const validate = () : boolean=>{
       if( Title === ""){
           setTitleError("Title should not be empty")
           return false;
@@ -56,7 +56,7 @@ export const Title:React.FC<Props> = (props:Props , history : RouteComponentProp
      
     }
 
-    const handleSubmit =(e:React.FormEvent<EventTarget>)=>{
+    const handleSubmit =(e:React.FormEvent<EventTarget>) :void =>{
         e.preventDefault()
         const isValidate = validate()
         if(isValidate){
@@ -67,12 +67,6 @@ export const Title:React.FC<Props> = (props:Props , history : RouteComponentProp
             }
         dispatch(postAction(formData))
         props.history.push('/posts')
-           
-              
-            
-            
-          
-
         }
      
 
@@ -85,7 +79,7 @@ export const Title:React.FC<Props> = (props:Props , history : RouteComponentProp
             <form onSubmit={handleSubmit}>
                 <Titled>
                 <Label>Title : </Label>
-            <InputElement type="text" value={Title} onChange={handleTitle} />
+            <InputElement type="text" value={Title} placeholder="Title" onChange={handleTitle} />
               <div style={{color:'red'}}>{TitleError}</div><br/>
 
                 </Titled>
@@ -95,7 +89,7 @@ export const Title:React.FC<Props> = (props:Props , history : RouteComponentProp
             <br/>
             <Titled>
             <Label>Description : </Label>
-            <Discription  value={Description} onChange={handleDescription} />
+            <Discription  value={Description} placeholder="Disciption" onChange={handleDescription} />
             <div style={{color:'red'}}>{DescriptionError}</div><br/>
             <SubmitButton type="submit"  value="Add To StoryBook"/>
                 
