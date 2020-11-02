@@ -1,6 +1,20 @@
 import React, { useEffect, useState,useRef } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import {History,LocationState} from 'history'
+import passwordValidator from 'password-validator'
+
+
+const schema = new passwordValidator()
+
+schema
+.is().min(6)                                    // Minimum length 6
+.is().max(12)                                  // Maximum length 12
+.has().uppercase()                              // Must have uppercase letters
+.has().lowercase()                              // Must have lowercase letters
+.has().digits(2)                                // Must have at least 2 digits
+.has().not().spaces() 
+.has().symbols(1)
+
 
 interface Props{
     username : String|null
@@ -36,8 +50,8 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
          }else {
              setErrorUserName("")
          }
-         if(password.length < 6){
-             setErrorPassword("Password should have atleast 6 characters")
+         if(!schema.validate(password)){
+             setErrorPassword("Password should contain atleas 6 Characters with  UpperCase and LowerCase letters and must include 2 numerics and  1 symbols ")
              InputPassword?.current?.focus()
             
              return false
