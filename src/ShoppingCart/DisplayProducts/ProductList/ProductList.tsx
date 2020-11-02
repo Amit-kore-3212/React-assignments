@@ -34,8 +34,6 @@ interface Props{
     }
     
     return(
-        
-
       
         <div>
           

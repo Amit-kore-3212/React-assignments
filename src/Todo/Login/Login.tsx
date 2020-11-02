@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import {History,LocationState} from 'history'
 
@@ -12,6 +12,9 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
     const [password,setPassword] = useState<string>("")
     const [errorUserName , setErrorUserName] = useState<string>("")
     const [errorPassword , setErrorPassword] = useState<string>("")
+    const TextInput = useRef() as React.RefObject<HTMLInputElement>
+    const InputPassword = useRef() as React.RefObject<HTMLInputElement>
+  
    
  
     const handleUserName=(e:React.ChangeEvent<HTMLInputElement>):void=>{
@@ -27,12 +30,16 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
      const validate =():boolean =>{
          if(username == ""){
              setErrorUserName("Username should be Present")
+         TextInput?.current?.focus()
+
              return false
          }else {
              setErrorUserName("")
          }
          if(password.length < 6){
              setErrorPassword("Password should have atleast 6 characters")
+             InputPassword?.current?.focus()
+            
              return false
          }else {
              setErrorPassword("")
@@ -48,13 +55,16 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
      
             localStorage.setItem('username',username)
             localStorage.setItem('password',password)
-         props.history.push("/todo")
+             props.history.push("/todo")
+          
             
 
         }
         
 
     }
+
+
     useEffect(() : void=> {
         const username = localStorage.getItem('username')
         if(username){
@@ -65,10 +75,6 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
         if(password){
             setPassword(password)
         }
-       
-
-    
-
      
  },[])
    
@@ -77,13 +83,13 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
             <form onSubmit={handleSubmit}>
                 <div>
                 <label>Username :</label>
-                <input type="text" value={username} placeholder="Enter Valid User Name" onChange={handleUserName}/>
+                <input type="text" value={username} id="username" placeholder="Enter Valid User Name" ref={TextInput} onChange={handleUserName}/>
 
                 </div>
                 <div style={{color:'red'}}>{errorUserName}</div>
                 <div><br/>
                 <label>Password :</label>
-                <input type="password" value={password} placeholder="Enter Password" onChange={handlePassword}/>
+                <input type="password" value={password} id="password" placeholder="Enter Password" ref={InputPassword} onChange={handlePassword}/>
 
                 </div>
                 <div style={{color:'red'}}>{errorPassword}</div><br/>
