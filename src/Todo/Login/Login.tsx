@@ -97,13 +97,13 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
             <form onSubmit={handleSubmit}>
                 <div>
                 <label>Username :</label>
-                <input type="text" value={username} id="username" placeholder="Enter Valid User Name" ref={TextInput} onChange={handleUserName}/>
+                <input type="text" value={username}  placeholder="Enter Valid User Name" ref={TextInput} onChange={handleUserName}/>
 
                 </div>
                 <div style={{color:'red'}}>{errorUserName}</div>
                 <div><br/>
                 <label>Password :</label>
-                <input type="password" value={password} id="password" placeholder="Enter Password" ref={InputPassword} onChange={handlePassword}/>
+                <input type="password" value={password}  placeholder="Enter Password" ref={InputPassword} onChange={handlePassword}/>
 
                 </div>
                 <div style={{color:'red'}}>{errorPassword}</div><br/>
