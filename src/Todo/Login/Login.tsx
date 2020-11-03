@@ -62,6 +62,8 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
 
      }
 
+   
+
     const handleSubmit=(e:any) : void =>{
         e.preventDefault()
         const isValidate=validate()
@@ -70,16 +72,22 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
             localStorage.setItem('username',username)
             localStorage.setItem('password',password)
              props.history.push("/todo")
+           
           
+            
+           
             
 
         }
         
 
     }
+    
+   
 
 
     useEffect(() : void=> {
+        
         const username = localStorage.getItem('username')
         if(username){
             setUsername(username)
@@ -89,6 +97,7 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
         if(password){
             setPassword(password)
         }
+      
      
  },[])
    

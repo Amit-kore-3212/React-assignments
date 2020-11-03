@@ -31,6 +31,7 @@ const handleAdding=() :void => {
     const isValidate:boolean = validate()
     if(isValidate){
         setTodoList(prevState => prevState.concat(todos))
+        // setTodoList ([...todoList,todos])
         setTodos("")
         const  dates= new Date().toDateString().split(' ')[1]
         const month = new Date().toDateString().split(' ')[2]
