@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 
 interface Props{
-    handleTodos : (value:{})=>void
+    handleTodos : (value:{todos:string})=>void
 }
 
  export const Todo:React.FC<Props>=(props:Props)=>{

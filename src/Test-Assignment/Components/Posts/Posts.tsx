@@ -11,7 +11,7 @@ import { InputElement ,  Discription, Posts, Titled, Label , SubmitButton } from
 
 
 interface Props {
-    postAction :(formData:any)=> void
+    postAction :(formData:{Title:string,Description:string})=> void
 
     history : History<LocationState>  
 }

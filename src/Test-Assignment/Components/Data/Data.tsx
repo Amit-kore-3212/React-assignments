@@ -2,10 +2,13 @@ import React , {useState } from 'react'
 import {connect} from 'react-redux'
 import { Label, PublishedDescription, PublishedPosts, PublishedTitle, Search } from '../Styled-Components'
 
-
+interface Posts{
+    Title:string,
+    Description : string
+}
 
 interface Props {
-    posts:any[]
+    posts:Posts[]
 
 }
 

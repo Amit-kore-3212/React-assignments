@@ -18,7 +18,7 @@ schema
 
 interface Props{
     history?:History<LocationState>,
-    onChange : (newValue : {})=> void
+    onChange : (newValue : {username:string , password:string})=> void
 }
 
 export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProps) => {
