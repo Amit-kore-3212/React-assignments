@@ -2,8 +2,18 @@ import React, { useEffect, useState } from 'react'
 import {CartInfo , Span, Remove , Carts , ProductName, Rating, Price ,P} from '../../StyledComponents/stylecomponent'
 
 
+
+
+interface Products{
+    id:number,
+    name:string,
+    rating:number,
+    description:string,
+    price:number
+
+}
 interface Props {
-    productInfo:any[],
+    productInfo:Products[],
     quantity:number
 }
 
@@ -11,7 +21,7 @@ interface Props {
 
 
 export const Cart:React.FC<Props> =(props:Props)=>{
-    const [ cartInfo , setCartInfo] = useState<any[]>([])
+    const [ cartInfo , setCartInfo] = useState<Products[]>([])
     const [cart , setCart] =useState<boolean>(false)
     const handleCart=()=>{
         setCart(prevState => !prevState)
@@ -48,7 +58,7 @@ const removeItem=(id:number)=>{
                                     <ProductName> Name :{ele.name}</ProductName>
                                     <Rating>Rating :{ele.rating}</Rating>
                                     <Price>Price : {ele.price}</Price>
-                                    <P>Total Price : {parseInt(ele.price) * props.quantity}</P>
+                                    <P>Total Price : {ele.price * props.quantity}</P>
                                     <Remove onClick={()=>{
                                         removeItem(ele.id)
                                     }}>Remove From Cart</Remove>

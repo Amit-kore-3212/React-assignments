@@ -17,8 +17,8 @@ schema
 
 
 interface Props{
-    username : String|null
-    history:History<LocationState>
+    history?:History<LocationState>,
+    onChange : (newValue : {})=> void
 }
 
 export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProps) => {
@@ -32,12 +32,16 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
    
  
     const handleUserName=(e:React.ChangeEvent<HTMLInputElement>):void=>{
-        setUsername(e.target.value)
+      const { value } = e.target
+      setUsername(value)
+      props.onChange({username:value,password})
         
 
     }
     const handlePassword =(e:React.ChangeEvent<HTMLInputElement>) : void => {
-        setPassword(e.target.value)
+        const { value } = e.target
+        setPassword(value)
+        props.onChange({password:value,username})
 
     }
  
@@ -71,21 +75,9 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
      
             localStorage.setItem('username',username)
             localStorage.setItem('password',password)
-             props.history.push("/todo")
-           
-          
-            
-           
-            
-
+             props.history?.push("/todo")  
         }
-        
-
     }
-    
-   
-
-
     useEffect(() : void=> {
         
         const username = localStorage.getItem('username')
@@ -96,28 +88,26 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
         const password = localStorage.getItem('password')
         if(password){
             setPassword(password)
-        }
-      
-     
+        }   
  },[])
    
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form data-testid="Login-form" onSubmit={handleSubmit}>
                 <div>
-                <label>Username :</label>
-                <input type="text" value={username}  placeholder="Enter Valid User Name" ref={TextInput} onChange={handleUserName}/>
+                <label data-testid="user">Username :</label>
+                <input type="text" data-testid="username" value={username}  placeholder="Enter Valid User Name" ref={TextInput} onChange={handleUserName}/>
 
                 </div>
                 <div style={{color:'red'}}>{errorUserName}</div>
                 <div><br/>
                 <label>Password :</label>
-                <input type="password" value={password}  placeholder="Enter Password" ref={InputPassword} onChange={handlePassword}/>
+                <input type="text" data-testid="password" value={password}  placeholder="Enter Password" ref={InputPassword} onChange={handlePassword}/>
 
                 </div>
                 <div style={{color:'red'}}>{errorPassword}</div><br/>
 
-                <input type="submit" value="Login"  />
+                <input type="submit" data-testid="submit"  value="Login"  />
              
             </form>
 

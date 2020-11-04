@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 
 interface Props{
-    value:string
+    handleTodos : (value:{})=>void
 }
 
  export const Todo:React.FC<Props>=(props:Props)=>{
@@ -13,7 +13,9 @@ interface Props{
 
 
 const handleTodos =(e:React.ChangeEvent<HTMLInputElement>):void=>{
-    setTodos(e.target.value )
+const { value} = e.target
+setTodos(value)
+props.handleTodos({todos:value})
     
     
     
@@ -53,12 +55,12 @@ const removeItem =(item:number) : void=>{
 
     return(
         <div>
-            <p> Hello : {localStorage.getItem('username')}</p>
+            <p data-testid='Hello' > Hello : {localStorage.getItem('username')}</p>
             <br/>
             <br/>
             <br/>
             <br/>
-            <input type="text" value={todos} onChange={handleTodos} />
+            <input type="text" data-testid="todo" value={todos} onChange={handleTodos} />
             <button onClick={handleAdding}>Add</button>
           
             <br/>
