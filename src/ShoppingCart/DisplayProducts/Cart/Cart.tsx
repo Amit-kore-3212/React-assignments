@@ -23,6 +23,8 @@ interface Props {
 export const Cart:React.FC<Props> =(props:Props)=>{
     const [ cartInfo , setCartInfo] = useState<Products[]>([])
     const [cart , setCart] =useState<boolean>(false)
+
+    
     const handleCart=()=>{
         setCart(prevState => !prevState)
         

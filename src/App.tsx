@@ -9,13 +9,9 @@ import { Login } from './Todo'
 export const DataContext = React.createContext<any[]>([])
 
 function App(){
-const [data , setData] = useState<any[]>([])
-
-  const addData =(formData:any)=>{
-     setData(prevState => prevState.concat(formData))
 
 
-  }
+ 
     return(
       <BrowserRouter>
     
