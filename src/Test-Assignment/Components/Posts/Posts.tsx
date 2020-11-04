@@ -20,7 +20,7 @@ interface Props {
 export const Title:React.FC<Props> = (props:Props , history : RouteComponentProps)=>{
 
     const dispatch = useDispatch()
-    const [Title , setTitle]= useState<string>("")
+    const [title , setTitle]= useState<string>("")
     const [Description,setDescription] = useState<string>("")
     const [TitleError , setTitleError] =useState<string>("")
     const [DescriptionError, setDescriptionError] = useState<string>("")
@@ -38,7 +38,7 @@ export const Title:React.FC<Props> = (props:Props , history : RouteComponentProp
 
     }
     const validate = () : boolean=>{
-      if( Title === ""){
+      if( title === ""){
           setTitleError("Title should not be empty")
           return false;
       }else {
@@ -79,7 +79,7 @@ export const Title:React.FC<Props> = (props:Props , history : RouteComponentProp
             <form onSubmit={handleSubmit}>
                 <Titled>
                 <Label>Title : </Label>
-            <InputElement type="text" value={Title} placeholder="Title" onChange={handleTitle} />
+            <InputElement type="text" value={title} placeholder="Title" onChange={handleTitle} />
               <div style={{color:'red'}}>{TitleError}</div><br/>
 
                 </Titled>
