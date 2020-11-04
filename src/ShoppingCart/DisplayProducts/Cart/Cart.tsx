@@ -47,12 +47,12 @@ const removeItem=(id:number)=>{
     
     return(
         <div>
-            <CartInfo onClick={handleCart}>Go To Cart<Span >{cartInfo.length}</Span></CartInfo>
+            <CartInfo onClick={handleCart}   data-testid="items">Go To Cart<Span >{cartInfo.length}</Span></CartInfo>
             {
                 cart && (
                     <Carts >
 
-                    <h2>Items:{cartInfo.length}</h2>
+                    <h2  >Items:{cartInfo.length}</h2>
                     {
                      cartInfo && cartInfo.map((ele)=>{
                             return(

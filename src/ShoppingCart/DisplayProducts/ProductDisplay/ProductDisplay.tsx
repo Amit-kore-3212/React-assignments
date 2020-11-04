@@ -8,6 +8,7 @@ interface Props{
     description:string,
      price:number
     addToCart : (name:string,rating:number,price:number,id:number,quantity:number)=> void
+    handleQuantity : (value:{quantity:number})=> void
    
 }
 
@@ -23,16 +24,20 @@ interface Props{
 
     }
     const handleChange =(e:any) :void=>{
-        setEditRating(e.target.value)
+        const { value  } = e.target
+        setEditRating(value)
+        
     }
     const EditedValue =() :void=>{
         setEdit(prevState => !prevState)
     }
-   const editTotally = (name:string , rating:number , price:number ,id:number, quantity:number) :void=>{
+   const AddToCart = (name:string , rating:number , price:number ,id:number, quantity:number) :void=>{
        props.addToCart(name,rating,price ,id, quantity)
    }
    const handleQuantity=(e:any) :void=>{
-       setquantity(e.target.value)
+       const { value } = e.target
+       setquantity(value)
+       props.handleQuantity({quantity:value})
 
    }
   
@@ -42,7 +47,7 @@ interface Props{
           <ID>id:{props.id}</ID>
           <ProductName>Name : {props.name}</ProductName> 
           {
-              edit ?  <div><EditRating type="text" value={editRating} onChange={handleChange}/> <Button onClick={EditedValue} >Update</Button></div> : 
+              edit ?  <div><EditRating type="text" value={editRating}   onChange={handleChange}/> <Button onClick={EditedValue} >Update</Button></div> : 
               <div>
                              <Rating>Rating:{editRating}</Rating>
               <Button  onClick={handleEdit}>Edit Rating</Button>
@@ -52,11 +57,11 @@ interface Props{
           }
           
           <Description>Description :{props.description}</Description>
-          <P>Quantity : <Quantity type="number" value={quantity} onChange={handleQuantity} /></P>
+          <P>Quantity : <Quantity type="number" data-testid="rating" value={quantity} onChange={handleQuantity} /></P>
           <Price>Price : {props.price}</Price>
 
           <Button onClick={()=>{
-              editTotally(props.name , editRating, props.price ,props.id,  quantity)
+              AddToCart(props.name , editRating, props.price ,props.id,  quantity)
           }}>Add To Cart</Button>
 
 

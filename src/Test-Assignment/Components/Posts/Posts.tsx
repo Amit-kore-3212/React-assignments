@@ -13,7 +13,7 @@ import { InputElement ,  Discription, Posts, Titled, Label , SubmitButton } from
 interface Props {
     postAction :(formData:{Title:string,Description:string})=> void
 
-    history : History<LocationState>  
+    history? : History<LocationState>  
 }
 
 
@@ -66,7 +66,7 @@ export const Title:React.FC<Props> = (props:Props , history : RouteComponentProp
                 
             }
         dispatch(postAction(formData))
-        props.history.push('/posts')
+        props.history?.push('/posts')
         }
      
 
