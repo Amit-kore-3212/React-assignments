@@ -8,7 +8,7 @@ interface Props{
     description:string,
      price:number
     addToCart : (name:string,rating:number,price:number,id:number,quantity:number)=> void
-    handleQuantity : (value:{quantity:number})=> void
+    handleQuantity ? : (value:{quantity:number})=> void
    
 }
 
@@ -37,7 +37,7 @@ interface Props{
    const handleQuantity=(e:any) :void=>{
        const { value } = e.target
        setquantity(value)
-       props.handleQuantity({quantity:value})
+       props.handleQuantity?.({quantity:value})
 
    }
   

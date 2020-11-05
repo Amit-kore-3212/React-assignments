@@ -20,19 +20,28 @@ interface Props {
 
 
 
+
+
 export const Cart:React.FC<Props> =(props:Props)=>{
     const [ cartInfo , setCartInfo] = useState<Products[]>([])
     const [cart , setCart] =useState<boolean>(false)
+    const [total , setTotal ] = useState<any[]>([])
 
     
     const handleCart=()=>{
         setCart(prevState => !prevState)
+     
         
     }
 
     
     useEffect(()=>{
         setCartInfo(props.productInfo)
+        cartInfo.map((ele)=>{
+            return(
+                setTotal(prevState => prevState.concat(ele.price * props.quantity))
+            )
+        })
 
     },[props])
     
@@ -43,9 +52,10 @@ const removeItem=(id:number)=>{
  
    
 }
+
   
     
-    return(
+return(
         <div>
             <CartInfo onClick={handleCart}   data-testid="items">Go To Cart<Span >{cartInfo.length}</Span></CartInfo>
             {
@@ -55,6 +65,7 @@ const removeItem=(id:number)=>{
                     <h2  >Items:{cartInfo.length}</h2>
                     {
                      cartInfo && cartInfo.map((ele)=>{
+                     
                             return(
                                 <div key={ele.name}>
                                     <ProductName> Name :{ele.name}</ProductName>
@@ -64,14 +75,29 @@ const removeItem=(id:number)=>{
                                     <Remove onClick={()=>{
                                         removeItem(ele.id)
                                     }}>Remove From Cart</Remove>
-
-                                    
+                            
+                                 
+                                
                                     </div>
+                                      
                             )
                         })
               
                         
+
                     }
+                    <h3>Totla Price:  {
+                     total && total.reduce(function(previous , accumelator ){
+                         return  previous + accumelator 
+                     },0)
+                 }
+             </h3>
+                
+                             
+                             
+                               
+                             
+                 
                
                  
 

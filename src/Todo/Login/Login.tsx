@@ -26,8 +26,6 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
     const [password,setPassword] = useState<string>("")
     const [errorUserName , setErrorUserName] = useState<string>("")
     const [errorPassword , setErrorPassword] = useState<string>("")
-    const TextInput = useRef() as React.RefObject<HTMLInputElement>
-    const InputPassword = useRef() as React.RefObject<HTMLInputElement>
   
    
  
@@ -48,7 +46,7 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
      const validate =():boolean =>{
          if(username == ""){
              setErrorUserName("Username should be Present")
-         TextInput?.current?.focus()
+     
 
              return false
          }else {
@@ -56,7 +54,7 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
          }
          if(!schema.validate(password)){
              setErrorPassword("Password should contain atleas 6 Characters with  UpperCase and LowerCase letters and must include 2 numerics and  1 symbols ")
-             InputPassword?.current?.focus()
+      
             
              return false
          }else {
@@ -78,6 +76,7 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
              props.history?.push("/todo")  
         }
     }
+
     useEffect(() : void=> {
         
         const username = localStorage.getItem('username')
@@ -96,13 +95,13 @@ export const Login:React.FC<Props> =  (props:Props, {history}:RouteComponentProp
             <form data-testid="Login-form" onSubmit={handleSubmit}>
                 <div>
                 <label data-testid="user">Username :</label>
-                <input type="text" data-testid="username" value={username}  placeholder="Enter Valid User Name" ref={TextInput} onChange={handleUserName}/>
+                <input type="text" data-testid="username" value={username}  placeholder="Enter Valid User Name"  onChange={handleUserName}/>
 
                 </div>
                 <div style={{color:'red'}}>{errorUserName}</div>
                 <div><br/>
                 <label>Password :</label>
-                <input type="text" data-testid="password" value={password}  placeholder="Enter Password" ref={InputPassword} onChange={handlePassword}/>
+                <input type="text" data-testid="password" value={password}  placeholder="Enter Password"  onChange={handlePassword}/>
 
                 </div>
                 <div style={{color:'red'}}>{errorPassword}</div><br/>

@@ -6,6 +6,7 @@ import {Head, Header ,Info} from '../../StyledComponents/stylecomponent'
 
 
 
+
 interface Products{
     id:number,
     name:string,
@@ -39,7 +40,7 @@ interface Props{
         <div>
           
             <Header >
-            <Head>Welcome to Laptop Gallery - Choose Your favourite One</Head>
+            <Head  data-testid="head">Welcome to Laptop Gallery - Choose Your favourite One</Head>
                
                 
             </Header>
@@ -52,11 +53,12 @@ interface Props{
                             <DisplayProducts id={ele.id} description={ele.description} rating={ele.rating} price={ele.price} name={ele.name} addToCart={addToCart} />
                            
                            
-                           <Cart productInfo={cart} quantity={quantity}/>
+                           <Cart productInfo={cart} quantity={quantity}  />
                             </Info>
                     )
                 })
             }
+        
             </div>
 
         </div>
